@@ -1,7 +1,7 @@
 import tkinter
 
 Ventana = tkinter.Tk()
-Ventana.geometry("1200x570")
+Ventana.geometry("1200x700")
 
 #Etiquetas
 
@@ -11,7 +11,7 @@ etiqueta.pack()
 Eti1 = tkinter.Label(Ventana, text= "Costo de Adquisicion",bg= "blue")
 Eti1.place(x=10,y=20,width=350,height=30)
 
-Eti2 = tkinter.Label(Ventana, text= "Costo Mantener Inventarios",bg= "blue")
+Eti2 = tkinter.Label(Ventana, text= "Costo de Pedido",bg= "blue")
 Eti2.place(x=10,y=60,width=350,height=30)
 
 Eti3 = tkinter.Label(Ventana, text= "Costo de mantener inventarios",bg= "blue")
@@ -43,6 +43,9 @@ Eti11.place(x=10,y=420,width=350,height=30)
 
 Eti12 = tkinter.Label(Ventana, text= "Tasa de Demanda",bg= "blue")
 Eti12.place(x=10,y=460,width=350,height=30)
+
+Eti13 = tkinter.Label(Ventana, text= "Faltante",bg= "blue")
+Eti13.place(x=10,y=500,width=350,height=30)
 
 
 
@@ -84,11 +87,14 @@ r.place(x=370,y=420,width=100,height=30)
 d = tkinter.Entry(Ventana,bg= "blue")
 d.place(x=370,y=460,width=100,height=30)
 
+s = tkinter.Entry(Ventana,bg= "blue")
+s.place(x=370,y=500,width=100,height=30)
+
 calcular = tkinter.Button(Ventana, text="Calcular", command=True,bg="Blue")
-calcular.place(x=10,y=510,width=220,height=50)
+calcular.place(x=10,y=540,width=220,height=50)
 
 limpiar = tkinter.Button(Ventana, text="Limpiar", command=True,bg="Blue")
-limpiar.place(x=250,y=510,width=220,height=50)
+limpiar.place(x=250,y=540,width=220,height=50)
 
 EOQ1 = tkinter.Frame(Ventana,bg="yellow")
 EOQ1.place(x=480, y=20, width=350,height=265)
@@ -106,13 +112,15 @@ LEP2.place(x=840, y=295, width=350,height=265)
 t1 = tkinter.Label(EOQ1, text="Economic Order Quantity Sin Faltante")
 t1.pack()
 
-t1 = tkinter.Label(EOQ2, text="Economic Order Quantity Con Faltante")
-t1.pack()
+t2 = tkinter.Label(EOQ2, text="Economic Order Quantity Con Faltante")
+t2.pack()
 
-t1 = tkinter.Label(LEP1, text="Learning Environment Preferences Sin Faltante")
-t1.pack()
+t3 = tkinter.Label(LEP1, text="Learning Environment Preferences Sin Faltante")
+t3.pack()
 
-t1 = tkinter.Label(LEP2, text="Learning Environment Preferences Con Faltante")
-t1.pack()
+t4 = tkinter.Label(LEP2, text="Learning Environment Preferences Con Faltante")
+t4.pack()
+
+
 
 Ventana.mainloop()
