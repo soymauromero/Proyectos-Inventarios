@@ -1,5 +1,6 @@
 import tkinter
-
+import Eoq
+from lep import Lepp,LeppFal
 Ventana = tkinter.Tk()
 Ventana.geometry("1200x700")
 
@@ -90,12 +91,6 @@ d.place(x=370,y=460,width=100,height=30)
 s = tkinter.Entry(Ventana,bg= "blue")
 s.place(x=370,y=500,width=100,height=30)
 
-calcular = tkinter.Button(Ventana, text="Calcular", command=True,bg="Blue")
-calcular.place(x=10,y=540,width=220,height=50)
-
-limpiar = tkinter.Button(Ventana, text="Limpiar", command=True,bg="Blue")
-limpiar.place(x=250,y=540,width=220,height=50)
-
 EOQ1 = tkinter.Frame(Ventana,bg="yellow")
 EOQ1.place(x=480, y=20, width=350,height=265)
 
@@ -112,15 +107,39 @@ LEP2.place(x=840, y=295, width=350,height=265)
 t1 = tkinter.Label(EOQ1, text="Economic Order Quantity Sin Faltante")
 t1.pack()
 
-t2 = tkinter.Label(EOQ2, text="Economic Order Quantity Con Faltante")
-t2.pack()
+t1 = tkinter.Label(EOQ2, text="Economic Order Quantity Con Faltante")
+t1.pack()
 
-t3 = tkinter.Label(LEP1, text="Learning Environment Preferences Sin Faltante")
-t3.pack()
-
-t4 = tkinter.Label(LEP2, text="Learning Environment Preferences Con Faltante")
-t4.pack()
+t1 = tkinter.Label(LEP1, text="Learning Environment Preferences Sin Faltante")
+t1.pack()
 
 
+
+t1 = tkinter.Label(LEP2, text="Learning Environment Preferences Con Faltante")
+t1.pack()
+def calculo():
+    le=Lepp()
+    le.setTp(float(d.get()))
+    le.settp(float(r.get()))
+    c=le.costo(float(cp.get()),float(cop.get()),float(cmi.get()))
+    lef=LeppFal()
+    lef.setTp(float(d.get()))
+    lef.settp(float(r.get()))
+    a=lef.costof(float(cp.get()),float(cop.get()),float(cmi.get()),float(cf.get()))
+    lepS=tkinter.Text(LEP1)
+    lepS.pack()
+    lepS.insert(tkinter.END,str(c)+"\n")
+    lepC=tkinter.Text(LEP2)
+    lepC.pack()
+    lepC.insert(tkinter.END,str(a)+"\n")
+    print("lepp sin:"+str(c))
+    print("lepp con:"+str(a))
+
+    
+calcular = tkinter.Button(Ventana, text="Calcular", command=calculo,bg="Blue",)
+calcular.place(x=10,y=540,width=220,height=50)
+
+limpiar = tkinter.Button(Ventana, text="Limpiar", command=True,bg="Blue")
+limpiar.place(x=250,y=540,width=220,height=50)
 
 Ventana.mainloop()
